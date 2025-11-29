@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css";>
+     <style>
+   
+    :root, html[data-bs-theme] {
+      transition: background-color 250ms ease, color 250ms ease;
+    }
+  
+    .theme-toggle {
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 60vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 1rem;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary",>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Home page</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      
+    </div>
+     <div class="d-flex align-items-center">
+        
+        <button id="theme-toggle" class="btn btn-outline-secondary theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+          <span id="theme-icon" class="me-2">🌙</span>
+          <span id="theme-label">Dark</span>
+        </button>
+      </div>
+  </div>
+</nav>
+ <div class="bg-dark text-white p-5" style="
+    background-image: url('25223.jpg');
+    background-size: cover;
+    background-position: center;
+">
+<div >
+    <a type="button" class="btn" href="index_homepage.html" > BACK </a><br><br>
+</div>
+  <h6 class="questionbox">	&nbsp;&nbsp;&nbsp;&nbsp; You are organizing your wedding, the documentation team is asking 40k for 
+    the wedding package. They will use an Iphone 16 pro max to cover the event and CapCut for the same day edit video. The
+     documentation team has 2  years of experience and has an above average portfolio. Would you agree to that deal? 
+     Explain your answer and justify the integrity of their work. Reflect on the integrity, creativity, skill level of the “vibe”
+     coders.
+</h6>
+ <br><br>
+  <h6 class="asnwerbox">
+    Answer: <br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;It depends on how people suggest to be the one organize the event. Althrough their only equipment is Iphone 16 pro max
+    to cover all the event, it depends on their skills on how good they will be for this job. The intergrity on them for me
+    is really concerning because they only an iphone 16 to cover all the event but they have a 2 years of experience and
+    has above average portolio and it cost only 40k and this is hard to believe that they are legit. Normal wedding packaging cost 
+    80k to even going to a million but theirs is really cheap because I feel like as soon as I gave the money and the next day, 
+    they would disappear. But if they are honest, they will be a honest and responsible. In their creativity because of their cheap
+    cost, the creativity of the wedding packaging is going cheap but they are going to do their best to be creative as possible only
+    using an Iphone 16. In their skill level I would rate it 5/10 because they only have an iphone 16 but they dont know how to use 
+    a computer and expensive camera to their job after 2 years. In conclusion I would'nt agree to their deal because I wanted to 
+    have our wedding to be special even it means spending 1 million for the wedding packaging.	
+</h6>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+   <script>
+    (function() {
+      const root = document.documentElement; 
+      const toggle = document.getElementById('theme-toggle');
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+      const STORAGE_KEY = 'color-theme'; 
+
+      function getPreferredTheme() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-bs-theme', theme);
+        toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        if (theme === 'dark') {
+          icon.textContent = '🌙';
+          label.textContent = 'Dark';
+          toggle.classList.remove('btn-outline-secondary');
+          toggle.classList.add('btn-outline-light');
+        } else {
+          icon.textContent = '☀️';
+          label.textContent = 'Light';
+          toggle.classList.remove('btn-outline-light');
+          toggle.classList.add('btn-outline-secondary');
+        }
+      }
+
+
+      function toggleTheme() {
+        const current = root.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        localStorage.setItem(STORAGE_KEY, next);
+      }
+
+
+      const initial = getPreferredTheme();
+      applyTheme(initial);
+
+
+      toggle.addEventListener('click', toggleTheme);
+
+
+      if (window.matchMedia) {
+        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+        mq.addEventListener && mq.addEventListener('change', (e) => {
+
+          if (!localStorage.getItem(STORAGE_KEY)) {
+            applyTheme(e.matches ? 'dark' : 'light');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
